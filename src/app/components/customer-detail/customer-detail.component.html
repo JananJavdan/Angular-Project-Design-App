@@ -1,0 +1,16 @@
+<mat-card class="customer-detail-card">
+    <mat-card-header>
+      <mat-card-title>{{ customer?.name }}'s Details</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p><strong>Email:</strong> {{ customer?.email }}</p>
+      <p><strong>Address:</strong> {{ customer?.address }}</p>
+      <p><strong>Phone:</strong> {{ customer?.phoneNumber }}</p>
+      <p><strong>Registered on:</strong> {{ customer?.registrationDate | date }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="editCustomer()">Edit</button>
+      <button mat-raised-button color="warn" (click)="deleteCustomer()">Delete</button>
+    </mat-card-actions>
+  </mat-card>
+  

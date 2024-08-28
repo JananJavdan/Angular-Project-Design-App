@@ -1,0 +1,19 @@
+.customer-form-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 40px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.customer-form-container h2 {
+  color: #3f51b5;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.customer-form-container .form-group {
+  margin-bottom: 15px;
+}

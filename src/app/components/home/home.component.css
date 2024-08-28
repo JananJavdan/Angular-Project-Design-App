@@ -1,0 +1,129 @@
+/* Algemene stijl voor de header */
+.header {
+    background: linear-gradient(to right, #aec6cf, #f7c7d4);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centreer de header horizontaal */
+    justify-content: center; /* Centreer de inhoud verticaal */
+    width: 100%;
+    max-width: 1200px; /* Maximaal formaat beperken voor grotere schermen */
+    margin: 20px auto; /* Centreert de header op de pagina */
+}
+
+/* Browser control buttons */
+.browser-controls {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.browser-controls .button {
+    width: 14px; /* Grotere knoppen */
+    height: 14px; /* Grotere knoppen */
+    background-color: #fff;
+    border-radius: 50%;
+    margin-right: 10px; /* Iets meer ruimte tussen de knoppen */
+    border: 1px solid #ccc;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.browser-controls .button:hover {
+    background-color: #ddd;
+}
+
+/* Address bar styling */
+.address-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: #fff;
+    padding: 15px; /* Meer padding voor een ruimere look */
+    border-radius: 8px; /* Iets rondere hoeken */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 20px; /* Ruimte boven de address bar */
+}
+
+.address-bar .back-forward-controls {
+    display: flex;
+    gap: 12px;
+    color: #333;
+    font-size: 20px; /* Grotere knoppen voor betere zichtbaarheid */
+    cursor: pointer;
+}
+
+.address-bar .back-forward-controls span:hover {
+    color: #555;
+}
+
+.address-bar input[type="text"] {
+    width: 70%;
+    padding: 10px; /* Grotere inputveld padding */
+    border: none;
+    border-radius: 6px;
+    background-color: #f0f0f0;
+    box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 16px; /* Grotere tekst in het invoerveld */
+    color: #333;
+}
+
+.address-bar input[type="text"]:focus {
+    outline: none;
+    background-color: #e6e6e6;
+}
+
+.menu-icon {
+    font-size: 28px; /* Grotere menu icon */
+    cursor: pointer;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.menu-icon:hover {
+    color: #555;
+}
+
+/* Knoppen voor navigatie onder de afbeelding */
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px; /* Ruimte tussen de knoppen */
+    margin-top: 20px; /* Ruimte boven de knoppen */
+}
+
+.buttons-container a {
+    text-decoration: none;
+    background-color: #4d79ff;
+    color: white;
+    padding: 15px 25px; /* Grotere padding voor grotere knoppen */
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+    font-size: 16px; /* Grotere tekst in de knoppen */
+}
+
+.buttons-container a:hover {
+    background-color: #3657b3;
+}
+
+/* Responsieve aanpassingen */
+@media (max-width: 768px) {
+    .address-bar input[type="text"] {
+        width: 60%;
+        font-size: 14px;
+    }
+
+    .address-bar .back-forward-controls span {
+        font-size: 18px;
+    }
+
+    .menu-icon {
+        font-size: 24px;
+    }
+}

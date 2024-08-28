@@ -1,0 +1,115 @@
+<div class="register-container">
+  <h2>Register</h2>
+  <form (ngSubmit)="onRegister()">
+    
+    <!-- First Name -->
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input 
+        matInput 
+        type="text" 
+        id="firstName" 
+        [(ngModel)]="firstName" 
+        name="firstName" 
+        placeholder="Enter your first name" 
+        required>
+    </div>
+
+    <!-- Last Name -->
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input 
+        matInput 
+        type="text" 
+        id="lastName" 
+        [(ngModel)]="lastName" 
+        name="lastName" 
+        placeholder="Enter your last name" 
+        required>
+    </div>
+
+    <!-- Email -->
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input 
+        matInput 
+        type="email" 
+        id="email" 
+        [(ngModel)]="email" 
+        name="email" 
+        placeholder="Enter your email" 
+        required>
+    </div>
+
+    <!-- Phone Number -->
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number</label>
+      <input 
+        matInput 
+        type="tel" 
+        id="phoneNumber" 
+        [(ngModel)]="phoneNumber" 
+        name="phoneNumber" 
+        placeholder="Enter your phone number" 
+        required>
+    </div>
+
+    <!-- Password -->
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input 
+        matInput 
+        type="password" 
+        id="password" 
+        [(ngModel)]="password" 
+        name="password" 
+        placeholder="Enter your password" 
+        required>
+    </div>
+     <!-- Address -->
+  <div class="form-group">
+    <label for="address">Address</label>
+    <input 
+      matInput 
+      type="text" 
+      id="address" 
+      [(ngModel)]="address" 
+      name="address" 
+      placeholder="Enter your address" 
+      required>
+  </div>
+   <!-- Registration Date -->
+   <div class="form-group">
+    <label for="registrationDate">Registration Date</label>
+    <input 
+      matInput 
+      type="date" 
+      id="registrationDate" 
+      [(ngModel)]="registrationDate" 
+      name="registrationDate" 
+      required>
+  </div>
+
+    <!-- Confirm Password -->
+    <div class="form-group">
+      <label for="confirmPassword">Confirm Password</label>
+      <input 
+        matInput 
+        type="password" 
+        id="confirmPassword" 
+        [(ngModel)]="confirmPassword" 
+        name="confirmPassword" 
+        placeholder="Confirm your password" 
+        required>
+    </div>
+
+    <!-- Register Button -->
+    <button mat-raised-button color="primary" type="submit" class="register-button">
+      Register
+    </button>
+  </form>
+
+  <div class="form-footer">
+    <p>Already have an account? <a [routerLink]="['/login']">Login here</a></p>
+  </div>
+</div>
