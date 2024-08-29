@@ -6,6 +6,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { DesignListComponent } from './components/design-list/design-list.component';
 import { OrderListComponent } from './components/order-list/order-list.component';
 import { HomeComponent } from './components/home/home.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+
 import { ConfirmationComponent } from './components/confirmation/confirmation.component';
 
 export const routes: Routes = [
@@ -17,6 +19,7 @@ export const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'confirm', component: ConfirmationComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'reset-password', component: ResetPasswordComponent },
 ];
 @NgModule({
     imports: [RouterModule.forRoot(routes)],

@@ -7,14 +7,23 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
+
   private tokenKey = 'authToken';
   private apiUrl = 'http://localhost:8080/users';
+  private apiUrlForgetPassword = 'http://localhost:8080/forgot-password';
 
   constructor(private http: HttpClient, private router: Router) { }
 
   login(credentials: { email: string, password: string }): Observable<any> {
     return this.http.post(`${this.apiUrl}/login`, credentials);
   }
+  forgotPassword(email: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/forgot-password`, { email });
+  }
+  resetPassword(token: string, newPassword: string) {
+    return this.http.post('/api/reset-password', { token, newPassword });
+  }
+  
   
 
   setToken(token: string): void {

@@ -22,5 +22,19 @@
   </form>
   <div class="form-footer">
     <p>Don't have an account? <a [routerLink]="['/register']">Register here</a></p>
+    <p>Or</p>
+    <p class="login-buttons">
+      <a href="http://localhost:8080/oauth2/authorization/google" class="login-button google-login">
+        <i class="fab fa-google"></i> Login with Google
+      </a>
+      <a href="http://localhost:8080/oauth2/authorization/facebook" class="login-button facebook-login">
+        <i class="fab fa-facebook-f"></i> Login with Facebook
+      </a>
+    </p>
   </div>
+  <div class="form-footer">
+    <p>Don't have an account? <a [routerLink]="['/register']">Register here</a></p>
+    <p><a [routerLink]="['/forgot-password']">Forgot Password?</a></p>
+</div>
+
 </div>
