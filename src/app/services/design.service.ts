@@ -8,43 +8,44 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class DesignService {
-  getAllDesigns() {
-    throw new Error('Method not implemented.');
-  }
   private baseUrl = 'http://localhost:8080/designs';
-  apiUrl: any;
-
+  
   constructor(private http: HttpClient) { }
 
-  getDesigns(): Observable<Design[]> {
-    return this.http.get<Design[]>(this.apiUrl).pipe(
+  getUserDesigns(userId: number): Observable<Design[]> {
+    const url = `${this.baseUrl}/user/${userId}`;
+    return this.http.get<Design[]>(url).pipe(
       catchError(this.handleError)
     );
   }
-
-
+  getDesigns(): Observable<Design[]> {
+    return this.http.get<Design[]>(this.baseUrl).pipe(
+      catchError(this.handleError)
+    );
+  }
   getDesignById(id: number): Observable<Design> {
-    const url = `${this.apiUrl}/${id}`;
+    const url = `${this.baseUrl}/${id}`;
     return this.http.get<Design>(url).pipe(
       catchError(this.handleError)
     );
   }
 
   createDesign(design: Design): Observable<Design> {
-    return this.http.post<Design>(this.apiUrl, design).pipe(
+    return this.http.post<Design>(this.baseUrl, design).pipe(
       catchError(this.handleError)
     );
   }
 
   updateDesign(id: number, design: Design): Observable<Design> {
-    const url = `${this.apiUrl}/${id}`;
+    const url = `${this.baseUrl}/${id}`;
     return this.http.put<Design>(url, design).pipe(
       catchError(this.handleError)
     );
   }
 
+
   deleteDesign(id: number): Observable<void> {
-    const url = `${this.apiUrl}/${id}`;
+    const url = `${this.baseUrl}/${id}`;
     return this.http.delete<void>(url).pipe(
       catchError(this.handleError)
     );

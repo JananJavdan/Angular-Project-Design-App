@@ -1,0 +1,42 @@
+<div *ngIf="isCustomerUser">
+  <!-- Customer-specific UI -->
+  <h2>Welcome, {{ customer.firstName }} {{ customer.lastName }}</h2>
+  <p>Email: {{ customer.email }}</p>
+  <p>Phone Number: {{ customer.phoneNumber }}</p>
+
+  <!-- Additional customer-specific details can go here -->
+  <div class="customer-actions">
+    <button mat-raised-button color="primary" (click)="editProfile()">Edit Profile</button>
+    <button mat-raised-button color="warn" (click)="deleteAccount()">Delete Account</button>
+  </div>
+</div>
+
+<div *ngIf="isAdminUser">
+  <!-- Admin-specific UI -->
+  <h2>Admin Dashboard</h2>
+  <p>You have administrative privileges.</p>
+
+  <!-- Admin can view and manage users -->
+  <div class="admin-actions">
+    <button mat-raised-button color="primary" (click)="viewAllUsers()">View All Users</button>
+    <button mat-raised-button color="accent" (click)="createNewUser()">Create New User</button>
+  </div>
+
+  <!-- List of all users (if applicable) -->
+  <div *ngIf="allUsers && allUsers.length">
+    <h3>All Registered Users</h3>
+    <ul>
+      <li *ngFor="let user of allUsers">
+        {{ user.firstName }} {{ user.lastName }} - {{ user.email }}
+        <button mat-icon-button color="warn" (click)="deleteUser(user.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- Fallback UI in case the user is neither admin nor customer -->
+<div *ngIf="!isAdminUser && !isCustomerUser">
+  <p>You do not have permission to view this page.</p>
+</div>

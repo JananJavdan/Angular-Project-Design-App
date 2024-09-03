@@ -1,25 +1,32 @@
 body {
-  background-color: #f7f8fa; /* Light background similar to the login page */
-  font-family: 'Roboto', sans-serif; /* Consistent font across the app */
+  background-color: #f7f8fa;
+  font-family: 'Roboto', sans-serif;
   margin: 0;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
 }
 
 .register-container {
   width: 100%;
-  max-width: 500px; /* Slightly wider than the login form */
+  max-width: 500px;
   padding: 40px;
   background-color: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Consistent shadow with the login form */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   transition: box-shadow 0.3s ease;
+  /* Flexbox properties for inner content centering */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* Ensuring the form takes up full width */
+  margin: 0 auto;
 }
 
 .register-container:hover {
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Subtle shadow change on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .register-container h2 {
@@ -31,12 +38,13 @@ body {
 }
 
 .register-container .form-group {
-  margin-bottom: 20px; /* Increased spacing for more fields */
+  margin-bottom: 20px;
+  width: 100%;
 }
 
 .register-container .form-group label {
   font-weight: bold;
-  color: #333; /* Darker label color for better contrast */
+  color: #333;
 }
 
 .register-container .form-group input {
@@ -54,7 +62,7 @@ body {
 }
 
 .register-container .form-group input::placeholder {
-  color: #aaaaaa; /* Subtle placeholder color */
+  color: #aaaaaa;
 }
 
 .register-container .register-button {

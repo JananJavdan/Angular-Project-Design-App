@@ -1,0 +1,130 @@
+body {
+  font-family: 'Roboto', sans-serif; /* Moderne en leesbare font */
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #6a1b9a; /* Paars voor een stijlvolle look */
+  color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Schaduw voor diepte */
+}
+
+.logo {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.nav a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.nav a:hover {
+  background-color: #9c27b0; /* Lichtere paars tint bij hover */
+}
+
+.main-content {
+  display: flex;
+  height: calc(100vh - 60px); /* 60px is de hoogte van de header */
+}
+
+.elements-panel,
+.properties-panel {
+  width: 220px; /* Iets bredere panelen voor meer ruimte */
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); /* Verbeterde schaduw voor diepte */
+}
+
+.elements-panel h3,
+.properties-panel h3 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #6a1b9a; /* Paars voor titels */
+}
+
+.canvas {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f7f7f7; /* Lichtere achtergrond voor de canvas */
+  border-left: 2px solid #e0e0e0; /* Lichte scheiding tussen de panelen en canvas */
+}
+
+.toolbar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.canvas-area {
+  width: 100%;
+  height: 80%;
+  border: 2px dashed #9c27b0; /* Paars voor de canvas rand */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 8px; /* Iets rondere hoeken */
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1); /* Schaduw voor diepte */
+}
+
+button {
+  padding: 12px;
+  margin-bottom: 15px;
+  width: 100%;
+  background-color: #6a1b9a;
+  color: white;
+  border: none;
+  border-radius: 6px; /* Rondere hoeken voor de knoppen */
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Schaduw voor knoppen */
+}
+
+button:hover {
+  background-color: #8e24aa; /* Lichtere paars tint bij hover */
+  transform: translateY(-2px); /* Lichte lift bij hover */
+}
+
+button:active {
+  background-color: #5e35b1; /* Donkerdere tint bij klikken */
+  transform: translateY(0); /* Terug naar normale positie bij klikken */
+}
+
+input[type="file"] {
+  display: none; /* Verberg de bestandkiezers */
+}
+
+.color-picker label,
+.font-picker label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #6a1b9a; /* Paars voor labels */
+}
+
+.color-picker input,
+.font-picker select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #333;
+}

@@ -1,34 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
-import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-
+import { CommonModule } from '@angular/common';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-forgot-password',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule, RouterModule], // Vergeet niet RouterModule toe te voegen
   templateUrl: './forgot-password.component.html',
   styleUrls: ['./forgot-password.component.css']
 })
 export class ForgotPasswordComponent {
-  email: string | undefined;
+  email: string = '';
+   
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private route: ActivatedRoute, private authService: AuthService, private router: Router) {}
+ 
 
-  onSubmit() {
-    if (this.email) {
-      this.authService.forgotPassword(this.email).subscribe(
+  onSubmitEmail() {
+    this.authService.forgotPassword(this.email).subscribe(
       () => {
-        // Logica na succesvolle verzending, zoals navigeren naar een succespagina
-        alert('Password reset email sent');
+        alert('An email has been sent with instructions to reset your password.');
         this.router.navigate(['/login']);
       },
-      (error: any) => {
-        console.error('Error sending password reset email', error);
+      (error) => {
+        alert('There was an error sending the email. Please try again later.');
       }
     );
   }
-
-  }
+  
 }

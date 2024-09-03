@@ -5,13 +5,13 @@ import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { RouterModule } from '@angular/router';
-import { HttpErrorResponse } from '@angular/common/http';
+
 
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [FormsModule, MatButtonModule, MatInputModule, RouterModule,],
+  imports: [FormsModule, MatButtonModule, MatInputModule, RouterModule],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })

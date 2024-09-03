@@ -1,129 +1,149 @@
-/* Algemene stijl voor de header */
-.header {
-    background: linear-gradient(to right, #aec6cf, #f7c7d4);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centreer de header horizontaal */
-    justify-content: center; /* Centreer de inhoud verticaal */
-    width: 100%;
-    max-width: 1200px; /* Maximaal formaat beperken voor grotere schermen */
-    margin: 20px auto; /* Centreert de header op de pagina */
+/* Algemene body stijl */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    margin: 0;
+    padding: 0;
 }
 
-/* Browser control buttons */
-.browser-controls {
+
+.banner {
+    margin-top: 0 auto; /* Voeg voldoende marge toe om de hoogte van de navbar te compenseren */
+    position: relative;
+    background: url('/home.page.jpg') no-repeat center center;
+    background-size: cover;
+    height: 400px;
     display: flex;
-    justify-content: flex-start;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 40px;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+.banner img {
+    max-width: 100%; /* Zorgt ervoor dat de afbeelding niet groter is dan de banner */
+    height: auto; /* Houdt de aspect ratio van de afbeelding */
+    object-fit: cover; /* Zorgt ervoor dat de afbeelding goed wordt geschaald binnen het element */
+}
+
+
+.banner .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+/* Algemene stijlen voor banner-inhoud */
+.banner-content {
+    position: absolute; /* Maak de positie absoluut zodat het gemakkelijk te centreren is binnen de banner */
+    top: 50%; /* Centreer verticaal */
+    left: 50%; /* Centreer horizontaal */
+    transform: translate(-50%, -50%); /* Verplaats de banner inhoud naar het exacte midden */
+    z-index: 1; /* Zorg ervoor dat de inhoud boven de overlay wordt weergegeven */
+    padding: 20px;
+    text-align: center; /* Centreer de tekst en knoppen horizontaal */
+    max-width: 800px; /* Beperk de breedte van de inhoud om ervoor te zorgen dat deze niet te breed wordt */
+    color: #ffffff; /* Zorg ervoor dat de tekst wit is voor maximale zichtbaarheid */
+}
+
+.banner-content h1 {
+    font-size: 48px; /* Pas de grootte van de koptekst aan */
+    margin-bottom: 10px;
+}
+
+.banner-content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.cta-button {
+    background-color: #ff6f61;
+    color: white;
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    display: inline-block; /* Zorg ervoor dat de knop correct wordt weergegeven */
+    margin-top: 10px; /* Voeg wat ruimte toe boven de knop */
+}
+
+.cta-button:hover {
+    background-color: #e05a50;
+}
+
+.banner-image {
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+    max-width: 300px;
+    max-height: 300px;
+    z-index: 2;
+}
+
+/* Services sectie stijl */
+.services {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Zorg ervoor dat items naar de volgende regel gaan indien nodig */
+    margin: 40px 0;
+    text-align: center;
+}
+
+.service-item {
+    flex-basis: 30%;
+    text-decoration: none;
+    color: inherit; /* Houd de tekstkleur consistent */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.service-icon {
+    font-size: 48px;
+    color: #ff6f61;
     margin-bottom: 15px;
 }
 
-.browser-controls .button {
-    width: 14px; /* Grotere knoppen */
-    height: 14px; /* Grotere knoppen */
-    background-color: #fff;
-    border-radius: 50%;
-    margin-right: 10px; /* Iets meer ruimte tussen de knoppen */
-    border: 1px solid #ccc;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.service-item h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
 }
 
-.browser-controls .button:hover {
-    background-color: #ddd;
+.service-item p {
+    font-size: 16px;
+    color: #666;
 }
 
-/* Address bar styling */
-.address-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    background-color: #fff;
-    padding: 15px; /* Meer padding voor een ruimere look */
-    border-radius: 8px; /* Iets rondere hoeken */
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    margin-top: 20px; /* Ruimte boven de address bar */
-}
 
-.address-bar .back-forward-controls {
-    display: flex;
-    gap: 12px;
-    color: #333;
-    font-size: 20px; /* Grotere knoppen voor betere zichtbaarheid */
-    cursor: pointer;
-}
-
-.address-bar .back-forward-controls span:hover {
-    color: #555;
-}
-
-.address-bar input[type="text"] {
-    width: 70%;
-    padding: 10px; /* Grotere inputveld padding */
-    border: none;
-    border-radius: 6px;
-    background-color: #f0f0f0;
-    box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.1);
-    font-size: 16px; /* Grotere tekst in het invoerveld */
-    color: #333;
-}
-
-.address-bar input[type="text"]:focus {
-    outline: none;
-    background-color: #e6e6e6;
-}
-
-.menu-icon {
-    font-size: 28px; /* Grotere menu icon */
-    cursor: pointer;
-    color: #333;
-    transition: color 0.3s ease;
-}
-
-.menu-icon:hover {
-    color: #555;
-}
-
-/* Knoppen voor navigatie onder de afbeelding */
-.buttons-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px; /* Ruimte tussen de knoppen */
-    margin-top: 20px; /* Ruimte boven de knoppen */
-}
-
+/* Algemene stijl voor de knoppen */
 .buttons-container a {
     text-decoration: none;
     background-color: #4d79ff;
     color: white;
-    padding: 15px 25px; /* Grotere padding voor grotere knoppen */
+    padding: 15px 25px;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s;
-    font-size: 16px; /* Grotere tekst in de knoppen */
+    font-size: 16px;
+    margin: 5px;
 }
 
 .buttons-container a:hover {
     background-color: #3657b3;
-}
-
-/* Responsieve aanpassingen */
-@media (max-width: 768px) {
-    .address-bar input[type="text"] {
-        width: 60%;
-        font-size: 14px;
-    }
-
-    .address-bar .back-forward-controls span {
-        font-size: 18px;
-    }
-
-    .menu-icon {
-        font-size: 24px;
-    }
 }

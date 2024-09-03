@@ -1,9 +1,17 @@
 <div class="order-list-container">
-  <h2>Order List</h2>
-  <mat-form-field appearance="fill">
-    <mat-label>Order ID</mat-label>
-    <input matInput placeholder="Enter order ID">
-  </mat-form-field>
+  <div class="order-item" *ngFor="let order of orders">
+    <h2>{{ order.productName }}</h2>
+    <p>{{ order.description }}</p>
+    <p><strong>Quantity:</strong> {{ order.quantity }}</p>
+    <p><strong>Order Date:</strong> {{ order.orderDate | date }}</p>
+    <p><strong>Status:</strong> {{ order.status }}</p>
+    <span class="price">{{ order.price | currency }}</span>
 
-  <button mat-raised-button color="primary">Search</button>
+    <div class="product-images">
+      <!-- Toon slechts één afbeelding per order, aangezien je maar één product wilt tonen -->
+      <img [src]="order.productImages[0]" alt="Product Image">
+    </div>
+
+    <img class="user-photo" [src]="order.userPhotoUrl" alt="User Photo">
+  </div>
 </div>

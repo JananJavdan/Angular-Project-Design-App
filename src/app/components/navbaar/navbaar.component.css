@@ -1,0 +1,59 @@
+.navbar {
+  background-color: #6a1b9a; /* Paars kleur voor de achtergrond */
+  color: white;
+  padding: 15px 30px; /* Extra padding voor een ruimtelijker gevoel */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Subtiele schaduw voor diepte */
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto; /* Centreert de container in de navbar */
+}
+
+.navbar-brand {
+  color: #ffffff;
+  font-size: 28px; /* Iets grotere lettergrootte voor het merk */
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navbar-brand:hover {
+  color: #d1c4e9; /* Lichtere paars tint bij hover */
+}
+
+.navbar-nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 25px; /* Grotere ruimte tussen de navigatie-items */
+}
+
+.navbar-nav li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 18px; /* Iets grotere lettergrootte voor navigatie-items */
+  transition: color 0.3s ease;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.navbar-nav li a:hover {
+  color: #d1c4e9; /* Lichtere paars tint bij hover */
+  background-color: rgba(255, 255, 255, 0.1); /* Zachte achtergrond voor hover */
+}
+
+.navbar-nav li a.active {
+  color: #ffffff;
+  background-color: #4a148c; /* Donkere paars tint voor de actieve link */
+  padding: 5px 10px;
+  border-radius: 4px;
+}

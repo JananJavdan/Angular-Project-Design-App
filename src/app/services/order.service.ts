@@ -1,38 +1,50 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 import { Order } from '../models/order.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrderService {
-  getOrders(): Observable<Order[]> {
-    return this.http.get<Order[]>(this.baseUrl);
-  }
   private baseUrl = 'http://localhost:8080/orders';
 
 
   constructor(private http: HttpClient) { }
-  placeOrder(order: Order): Observable<Order> {
-    return this.http.post<Order>(this.baseUrl, order);
-  }
-
-  getOrderById(id: number): Observable<Order> {
-    return this.http.get<Order>(`${this.baseUrl}/${id}`);
-  }
-
-  updateOrder(id: number, order: Order): Observable<Order> {
-    return this.http.put<Order>(`${this.baseUrl}/${id}`, order);
-  }
-
-  deleteOrder(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.baseUrl}/${id}`);
-  }
 
   getAllOrders(): Observable<Order[]> {
-    return this.http.get<Order[]>(this.baseUrl);
+    return this.http.get<Order[]>(`${this.baseUrl}/orders`);
   }
+
+  
+   getOrderById(id: number): Observable<Order> {
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.get<Order>(url, {
+      withCredentials: true
+    });
+  }
+
+ 
+   updateOrder(id: number, order: Order): Observable<Order> {
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.put<Order>(url, order, {
+      withCredentials: true,
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    });
+  }
+
+ 
+    deleteOrder(id: number): Observable<void> {
+      const url = `${this.baseUrl}/${id}`;
+      return this.http.delete<void>(url, {
+        withCredentials: true
+      });
+    }
+ 
+
+  
 
 }
 

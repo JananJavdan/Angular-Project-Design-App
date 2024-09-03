@@ -2,13 +2,14 @@ import { Component } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { RouterModule } from '@angular/router';
 import { RouterOutlet } from '@angular/router';
-import { NavbarComponent as NavbarComponent } from "./components/navbar/navbar.component";
+import { NavbarComponent } from './components/navbaar/navbaar.component';
+import { OrderListComponent } from "./components/order-list/order-list.component";
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterModule, NavbarComponent],
+  imports: [RouterOutlet, RouterModule, OrderListComponent, NavbarComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })

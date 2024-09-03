@@ -9,8 +9,11 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class UserService {
+  apiUrl: any;
+ 
   private baseUrl = 'http://localhost:8080/users';
   private tokenKey = 'authToken';
+  
 
   constructor(private http: HttpClient, private router: Router, private authService: AuthService) { }
 
@@ -22,6 +25,13 @@ export class UserService {
       params: { token }, 
       responseType: 'text' 
     });
+  }
+  forgotPassword(email: string): Observable<any> {
+    return this.http.post('http://localhost:8080/forgot-password', { email });
+  }
+
+  resetPassword(token: string, password: string): Observable<any> {
+    return this.http.post('http://localhost:8080/reset-password', { token, password });
   }
 
   loginUser(credentials: { email: string, password: string }): Observable<string> {
@@ -44,10 +54,32 @@ export class UserService {
     this.router.navigate(['/login']);
   }
 
-  getUserById(id: number): Observable<User> {
-    return this.http.get<User>(`${this.baseUrl}/${id}`);
+  getUserById(userId: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/${userId}`);
   }
+  getAllUsers(): Observable<User[]> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.authService.getToken()}`);
+    return this.http.get<User[]>(`${this.baseUrl}/admin/users`, { headers });
+}
 
+  getCurrentUserId(): number {
+    return parseInt(localStorage.getItem('userId')!, 10);
+  }
+  getCurrentUser(): Observable<User> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.authService.getToken()}`);
+    return this.http.get<User>(`${this.baseUrl}/user-profile`, { headers });
+  }
+  getUserProfile(): Observable<User> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.authService.getToken()}`);
+    return this.http.get<User>(`${this.baseUrl}/user-profile`, { headers });
+  }
+ 
+  getCustomers(): Observable<User[]> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.authService.getToken()}`);
+    return this.http.get<User[]>(`${this.baseUrl}/customers`, { headers });
+}
+
+  
   updateUser(id: number, user: User): Observable<User> {
     return this.http.put<User>(`${this.baseUrl}/${id}`, user);
   }
@@ -57,7 +89,7 @@ export class UserService {
   }
   getSecuredData(): Observable<any> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${this.authService.getToken()}`);
-    return this.http.get(`${this.baseUrl}/some-secured-endpoint`, { headers });
+    return this.http.get(`${this.baseUrl}/profile`, { headers });
   }
   
 }

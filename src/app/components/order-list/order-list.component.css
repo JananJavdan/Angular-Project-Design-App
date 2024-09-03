@@ -1,23 +1,55 @@
+.order-item {
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 10px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.order-item h2 {
+  font-size: 22px; /* Maak de tekst iets kleiner, bijvoorbeeld 22px */
+  color: #333; /* Zorg ervoor dat de kleur consistent is */
+}
+
+.order-item h3 {
+  font-size: 18px; /* Stel de grootte in voor eventuele subkoppen */
+  color: #333; /* Zorg ervoor dat de kleur consistent is */
+}
+
+
+.product-images {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.product-images img {
+  width: 100%;
+  max-width: 200px; /* Pas de breedte aan naar je voorkeur */
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 8px;
+}
+
+.user-photo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  margin-top: 10px;
+}
+
 .order-list-container {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-  }
-  
-  h2 {
-    color: #343a40;
-    margin-bottom: 20px;
-  }
-  
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  li {
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-  }
-  
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-top: 0px; /* Ruimte bovenaan om overlap met navbar te voorkomen */
+}
+
+

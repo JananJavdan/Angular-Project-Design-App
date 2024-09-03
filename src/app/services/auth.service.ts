@@ -1,16 +1,16 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
+  [x: string]: any;
   private tokenKey = 'authToken';
   private apiUrl = 'http://localhost:8080/users';
-  private apiUrlForgetPassword = 'http://localhost:8080/forgot-password';
+ 
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -18,20 +18,45 @@ export class AuthService {
     return this.http.post(`${this.apiUrl}/login`, credentials);
   }
   forgotPassword(email: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}/forgot-password`, { email });
+    return this.http.post('/forgot-password', { email }, { observe: 'response' }).pipe(
+      map((response: { status: number; body: any; }) => {
+        if (response.status === 200) {
+          return response.body;
+        } else {
+          throw new Error('Failed to send email');
+        }
+      })
+    );
   }
-  resetPassword(token: string, newPassword: string) {
-    return this.http.post('/api/reset-password', { token, newPassword });
+  
+  resetPassword(token: string, newPassword: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/reset-password`, { token, newPassword });
+  }
+  decodeToken(token: string): any {
+    return this['jwtHelper'].decodeToken(token);
+  }
+  isAdmin(): boolean {
+    const token = this.getToken();
+    if (!token) return false;
+    const decodedToken = this.decodeToken(token);
+    return decodedToken.role === 'ADMIN';
+  }
+
+  isCustomer(): boolean {
+    const token = this.getToken();
+    if (!token) return false;
+    const decodedToken = this.decodeToken(token);
+    return decodedToken.role === 'CUSTOMER';
   }
   
   
 
   setToken(token: string): void {
-    localStorage.setItem('authToken', token);
+    localStorage.setItem(this.tokenKey, token);
   }
 
   getToken(): string | null {
-    return localStorage.getItem('authToken');
+    return localStorage.getItem(this.tokenKey);
   }
 
   logout(): void {
@@ -46,6 +71,7 @@ export class AuthService {
     }
     return null;
   }
+  
   isLoggedIn(): boolean {
     return !!this.getToken();
   }
