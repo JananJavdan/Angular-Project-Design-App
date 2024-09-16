@@ -9,12 +9,18 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { ConfirmationComponent } from './components/confirmation/confirmation.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { MyDesignsComponent } from './components/my-designs/my-designs.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
+
+
+
+
 
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'designs', component: DesignToolComponent },
-  { path: '', redirectTo: '/design-tool', pathMatch: 'full' },
+  { path: 'designs',component: DesignToolComponent},
+  { path: 'my-designs', component: MyDesignsComponent },
+  { path: 'design-tool', component: DesignToolComponent },
   { path: 'orders', component: OrderListComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
@@ -23,8 +29,12 @@ export const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent},
   { path: 'reset-password', component: ResetPasswordComponent},
   { path: 'user-profile', component: UserProfileComponent},
+  { path: 'app-about-us', component: AboutUsComponent},
+
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '', redirectTo: '/user-profile', pathMatch: 'full' },
-  { path: '**', redirectTo: '/login', pathMatch: 'full' }
+  { path: '**', redirectTo: '/login', pathMatch: 'full' },
+  
 ];
 @NgModule({
     imports: [RouterModule.forRoot(routes)],

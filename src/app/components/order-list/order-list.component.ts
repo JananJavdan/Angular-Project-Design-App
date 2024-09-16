@@ -7,12 +7,14 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import { MatPaginatorModule } from '@angular/material/paginator';
-
+import { AuthService } from '../../services/auth.service';
 import { OrderService } from '../../services/order.service';
 import { Order } from '../../models/order.model';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { Design } from '../../models/design.model';
+import { DesignService } from '../../services/design.service';
 
 @Component({
   selector: 'app-order-list',
@@ -26,12 +28,22 @@ import { Component, OnInit } from '@angular/core';
     MatInputModule,
     MatSelectModule,
     MatOptionModule,
-    MatPaginatorModule
+    MatPaginatorModule,
   ],
   templateUrl: './order-list.component.html',
   styleUrls: ['./order-list.component.css']
 })
 export class OrderListComponent {
+  designs: Design[] = [];
+ 
+
+  constructor(private designService: DesignService, private authService: AuthService, private router: Router) {}
+
+  viewProductDetails(orderId: number): void {
+    this.router.navigate(['/product', orderId]);
+  }
+  
+
   orders: Order[] = [
     {
       id: 1,

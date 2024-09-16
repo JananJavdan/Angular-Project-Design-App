@@ -1,0 +1,72 @@
+<div class="about-us-container">
+  <!-- Hero Section -->
+  <div class="about-hero">
+    <h1>About Our Studio</h1>
+    <p>Crafting timeless and innovative designs for the fashion industry.</p>
+  </div>
+
+  <!-- Mission, Vision, and Values -->
+  <div class="about-mvv">
+    <section class="mission">
+      <h2>Our Mission</h2>
+      <p>To empower creativity and provide exceptional design solutions that reflect the essence of our clients' brands.</p>
+    </section>
+
+    <section class="vision">
+      <h2>Our Vision</h2>
+      <p>To become a globally recognized design studio, known for our craftsmanship, innovation, and dedication to excellence.</p>
+    </section>
+
+    <section class="values">
+      <h2>Our Core Values</h2>
+      <ul>
+        <li>Creativity</li>
+        <li>Innovation</li>
+        <li>Quality</li>
+        <li>Customer Focus</li>
+      </ul>
+    </section>
+  </div>
+
+  <!-- Meet the Team -->
+  <div class="about-team">
+    <h2>Meet Our Team</h2>
+    <div class="team-members">
+      <div class="team-member">
+        <img src="/photo_2024-04-12_11-12-161.jpg" alt="Janan Javdan">
+        <h3>Janan Javdan</h3>
+        <p>Founder & Creative Director</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Form Section -->
+  <div class="about-contact">
+    <h2>Contact Us</h2>
+    <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" novalidate>
+      <!-- Name Field -->
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required ngModel>
+      <div *ngIf="contactForm.submitted && !contactForm.controls['name']?.valid" class="error">
+        Name is required.
+      </div>
+
+      <!-- Email Field -->
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required ngModel>
+      <div *ngIf="contactForm.submitted && !contactForm.controls['email']?.valid" class="error">
+        Please provide a valid email.
+      </div>
+
+      <!-- Message Field -->
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" required ngModel></textarea>
+      <div *ngIf="contactForm.submitted && !contactForm.controls['message']?.valid" class="error">
+        Message is required.
+      </div>
+
+      <!-- Send Message Button -->
+      <button type="submit" [disabled]="contactForm.invalid">Send Message</button>
+    </form>
+  </div>
+</div>

@@ -18,32 +18,26 @@ export class ResetPasswordComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private authService: AuthService, private router: Router) {}
 
-  ngOnInit(): void {
-    this.token = this.route.snapshot.queryParamMap.get('token') as string;
-    if (!this.token) {
-      alert('Ongeldige of ontbrekende token');
-      this.router.navigate(['/forgot-password']);
-    }
-}
+  ngOnInit() {
+    // Retrieve the token from the URL query params
+    this.token = this.route.snapshot.queryParams['token'];
+  }
 
-  onSubmitNewPassword() {
+  onSubmit() {
     if (this.newPassword !== this.confirmPassword) {
-      alert('Wachtwoorden komen niet overeen!');
+      alert('Passwords do not match');
       return;
     }
-
+  
     this.authService.resetPassword(this.token, this.newPassword).subscribe(
       response => {
-        alert(response);
-        this.router.navigate(['/login']);
+        alert(response.message);  // Display the success message from the response
+        this.router.navigate(['/login']);  // Navigate to the login page
       },
       error => {
-        alert(error.error); // Display the error message
-        if (error.status === 400) {
-          this.router.navigate(['/login']); // Redirect to login page on error
-        }
+        console.error('Error occurred:', error);
+        alert('Error resetting password: ' + (error.error.message || 'Unknown error'));
       }
     );
-    
   }
 }

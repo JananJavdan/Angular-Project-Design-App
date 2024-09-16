@@ -20,14 +20,19 @@ export class ForgotPasswordComponent {
 
   onSubmitEmail() {
     this.authService.forgotPassword(this.email).subscribe(
-      () => {
-        alert('An email has been sent with instructions to reset your password.');
-        this.router.navigate(['/login']);
+      (response) => {
+        if (response && response.message) {
+          alert(response.message);  // Use the message from the JSON response
+          this.router.navigate(['/login']);
+        }
       },
       (error) => {
-        alert('There was an error sending the email. Please try again later.');
+        if (error.error && error.error.message) {
+          alert(error.error.message);  // Use the error message from the JSON response
+        } else {
+          alert('There was an error sending the email. Please try again later.');
+        }
       }
     );
   }
-  
-}
+}  

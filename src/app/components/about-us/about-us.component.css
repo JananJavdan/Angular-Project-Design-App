@@ -1,0 +1,172 @@
+.about-us-container {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .about-hero {
+    background-image: url('/studio-background.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 20px;
+    text-align: center;
+    color: white;
+  }
+  
+  .about-hero h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+  }
+  
+  .about-hero p {
+    font-size: 1.5rem;
+  }
+  
+  .about-mvv {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+  }
+  
+  .about-mvv h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+  
+  .about-mvv p, .about-mvv ul {
+    font-size: 1.1rem;
+    color: #333;
+  }
+  
+  .values ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .values ul li {
+    background: #f0f0f0;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+  
+  .about-team {
+    margin-top: 50px;
+  }
+  
+  .about-team h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+  }
+  
+  .team-members {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .team-member {
+    text-align: center;
+    max-width: 200px;
+  }
+  
+  .team-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    object-fit: cover;
+  }
+  
+  .team-member h3 {
+    margin-bottom: 5px;
+    font-size: 1.3rem;
+    color: #555;
+  }
+  
+  .team-member p {
+    color: #777;
+  }
+  
+  .about-cta {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+    margin-top: 50px;
+  }
+  
+  .about-cta h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .about-cta p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+  
+  .cta-button {
+    background-color: #f9b233;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cta-button:hover {
+    background-color: #d89000;
+  }
+  /* Contact Form Section */
+.about-contact {
+  margin-top: 50px;
+  background-color: #f0f0f0;
+  padding: 50px;
+  border-radius: 10px;
+}
+
+.about-contact h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+}
+
+.about-contact form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: grid;
+  gap: 20px;
+}
+
+.about-contact label {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.about-contact input, .about-contact textarea {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.about-contact button {
+  padding: 15px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.about-contact button:hover {
+  background-color: #555;
+}
+
+  

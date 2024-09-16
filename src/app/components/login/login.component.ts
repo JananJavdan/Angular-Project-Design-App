@@ -26,6 +26,7 @@ export class LoginComponent {
 
   constructor(private authService: AuthService, private userService: UserService, private router: Router) {}
 
+
   onLogin() {
     const loginData = {
       email: this.email,
@@ -33,19 +34,17 @@ export class LoginComponent {
       role: this.selectedRole.toUpperCase() 
     };
     
-  
     this.authService.login(loginData).subscribe(
-      (token: string) => {
-        this.authService.setToken(token);
-        alert('Login successful!');
-        this.router.navigate(['/dashboard']);
+      (response: any) => {
+        console.log('Login successful', response);
+        this.authService.setToken(response.token); // Sla token op in localStorage
+        this.router.navigate(['/home']); // Navigeer naar home na succesvol inloggen
       },
-      error => {
+      (error) => {
         console.error('Login failed', error);
-        alert('Login failed. Please check your credentials and try again.');
+        alert('Login failed. Please check your credentials.');
       }
     );
-    
   }
-}  
-
+}
+ 

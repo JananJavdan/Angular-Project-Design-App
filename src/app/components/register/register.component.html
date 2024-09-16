@@ -29,18 +29,32 @@
         required>
     </div>
 
-    <!-- Email -->
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input 
-        matInput 
-        type="email" 
-        id="email" 
-        [(ngModel)]="email" 
-        name="email" 
-        placeholder="Enter your email" 
-        required>
-    </div>
+     <!-- Username -->
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input
+     matInput
+     type="text" 
+     id="username"
+     [(ngModel)]="username" 
+     name="username"
+     placeholder="Enter your username" 
+     required />
+  </div>
+    
+
+   <!-- Email -->
+   <div class="form-group">
+    <label for="email">Email</label>
+    <input 
+      matInput 
+      type="email" 
+      id="email" 
+      [(ngModel)]="email" 
+      name="email" 
+      placeholder="Enter your email" 
+      required>
+  </div>
 
     <!-- Phone Number -->
     <div class="form-group">
@@ -55,18 +69,7 @@
         required>
     </div>
 
-    <!-- Password -->
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input 
-        matInput 
-        type="password" 
-        id="password" 
-        [(ngModel)]="password" 
-        name="password" 
-        placeholder="Enter your password" 
-        required>
-    </div>
+
      <!-- Address -->
   <div class="form-group">
     <label for="address">Address</label>
@@ -88,6 +91,19 @@
       id="registrationDate" 
       [(ngModel)]="registrationDate" 
       name="registrationDate" 
+      required>
+  </div>
+
+     <!-- Password -->
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input 
+      matInput 
+      type="password" 
+      id="password" 
+      [(ngModel)]="password" 
+      name="password" 
+      placeholder="Enter your password" 
       required>
   </div>
 

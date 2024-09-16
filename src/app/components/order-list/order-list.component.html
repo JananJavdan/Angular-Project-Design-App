@@ -1,5 +1,8 @@
 <div class="order-list-container">
-  <div class="order-item" *ngFor="let order of orders">
+  
+  
+  <!-- List for orders -->
+  <div *ngFor="let order of orders" class="order-item" (click)="viewProductDetails(order.id)">
     <h2>{{ order.productName }}</h2>
     <p>{{ order.description }}</p>
     <p><strong>Quantity:</strong> {{ order.quantity }}</p>
@@ -7,11 +10,25 @@
     <p><strong>Status:</strong> {{ order.status }}</p>
     <span class="price">{{ order.price | currency }}</span>
 
+    <!-- Show one product image per order -->
     <div class="product-images">
-      <!-- Toon slechts één afbeelding per order, aangezien je maar één product wilt tonen -->
       <img [src]="order.productImages[0]" alt="Product Image">
     </div>
 
+    <!-- User photo -->
     <img class="user-photo" [src]="order.userPhotoUrl" alt="User Photo">
+  </div>
+</div>
+
+<!-- Separate list for designs -->
+<div class="order-list-container">
+  <h2>Designs</h2>
+
+  <!-- List for designs -->
+  <div *ngFor="let design of designs" class="order-item">
+    <h3>{{ design.logo }}</h3>
+    <p>Color: {{ design.color }}</p>
+    <p>Font: {{ design.font }}</p>
+    <img [src]="design.imageUrl" alt="Design Image" *ngIf="design.imageUrl">
   </div>
 </div>

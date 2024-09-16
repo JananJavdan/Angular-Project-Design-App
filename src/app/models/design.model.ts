@@ -1,7 +1,9 @@
-import { Customer } from "./customer.model";
-import { DesignManager } from "./DesignManager";
-
+export interface DesignBase {
+ 
+  imageUrl: string;
+}
 export interface Design {
+image: any;
 name: any;
   id: number;
   title: string;         
@@ -17,6 +19,6 @@ name: any;
   customer: any;          
   designManager: any;     
   approved: boolean; 
- 
+
   }
   

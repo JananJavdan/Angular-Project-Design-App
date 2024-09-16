@@ -2,18 +2,32 @@
   <header class="header">
     <div class="logo">MyDesignTool</div>
     <nav class="nav">
-      <a href="#">My Designs</a>
+      <a [routerLink]="['/my-designs']">My Designs</a>
+
+
     </nav>
   </header>
 
   <div class="main-content">
     <aside class="elements-panel">
       <h3>Add Elements</h3>
+      <input [(ngModel)]="customText" type="text" placeholder="Enter text" />
       <button (click)="addText()">Add Text</button>
+
+      <h3>Select Shape</h3>
+      <select [(ngModel)]="selectedShape">
+        <option value="rectangle">Rectangle</option>
+        <option value="circle">Circle</option>
+        <option value="triangle">Triangle</option>
+      </select>
       <button (click)="addShape()">Add Shape</button>
+
       <button (click)="triggerImageUpload()">Add Image</button>
       <input type="file" id="imageUpload" (change)="onImageUpload($event)" style="display: none;">
-      <button>Choose Background</button>
+     
+      <button (click)="chooseBackgroundColor()">Choose Background</button>
+      <input type="color" id="backgroundColorPicker" (change)="setBackgroundColor($event)" style="display: none;" />
+
     </aside>
 
     <section class="canvas">
@@ -21,6 +35,9 @@
         <button (click)="undo()">Undo</button>
         <button (click)="redo()">Redo</button>
         <button (click)="save()">Save</button>
+        <button (click)="toggleBold()">Bold</button>
+        <button (click)="toggleItalic()">Italic</button>
+
         <button (click)="download()">Download</button>
       </div>
       <canvas id="canvas" class="canvas-area"></canvas>
@@ -30,7 +47,7 @@
       <h3>Properties</h3>
       <div class="color-picker">
         <label for="color">Color:</label>
-        <input type="color" id="color" name="color" value="#ff0000">
+        <input type="color" id="color" name="color" [(ngModel)]="selectedColor" />
       </div>
       <div class="font-picker">
         <label for="font">Font:</label>

@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { RouterModule } from '@angular/router';
+import { User } from '../../models/user.model';
 
 
 
@@ -18,12 +19,14 @@ import { RouterModule } from '@angular/router';
 export class RegisterComponent {
   firstName: string = '';
   lastName: string = '';
+  username: string = '';
   email: string = '';
   phoneNumber: string = '';
   password: string = '';
   confirmPassword: string = '';
-address: any;
-registrationDate: any;
+  address: string = '';
+  registrationDate: Date = new Date();
+ 
 
   constructor(private userService: UserService, private router: Router) {}
 
@@ -37,33 +40,34 @@ registrationDate: any;
       name: `${this.firstName} ${this.lastName}`,
       firstName: this.firstName,
       lastName: this.lastName,
+      username: this.username,
       email: this.email,
       password: this.password,
       phoneNumber: this.phoneNumber,
-      address: this.address, // Nieuw veld
+      address: this.address, 
       registrationDate: this.registrationDate,
-      role: 'CUSTOMER' 
+      role: 'CUSTOMER'
       
     };
+    console.log('User data being sent:', user);
 
     this.userService.registerUser(user).subscribe(
       response => {
         console.log('Server response:', response);
-        alert(response);
+        alert('Registration successful!');
         this.router.navigate(['/login']);
       },
       error => {
         console.log('Error response:', error);
         if (error.status === 400) {
-          alert('Registration failed: ' + error.error);
+          alert('Registration failed: ' + JSON.stringify(error.error));
         } else {
-          console.error('An unexpected error occurred:', error);
+          alert('An unexpected error occurred.');
         }
       }
     );
-    
-   
   }
+
 }
 
 

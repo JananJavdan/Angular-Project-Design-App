@@ -1,26 +1,38 @@
 .order-item {
-  background-color: #f4f4f4;
-  border: 1px solid #ddd;
+  background-color: #ffffff; /* Use white for a cleaner look */
+  border: 1px solid #e0e0e0;
   border-radius: 8px;
-  padding: 20px;
-  margin: 10px;
+  padding: 25px; /* Increase padding for more comfort */
+  margin: 15px; /* Increase margin between items */
   width: 300px;
   text-align: center;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transition: all 0.3s ease; /* Add smooth transition for hover effect */
 }
+
+.order-item:hover {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+}
+
+.order-item:focus {
+  outline: 2px solid #007bff; /* Highlight focus for better accessibility */
+}
+
 .order-item h2 {
-  font-size: 22px; /* Maak de tekst iets kleiner, bijvoorbeeld 22px */
-  color: #333; /* Zorg ervoor dat de kleur consistent is */
+  font-size: 22px;
+  color: #333;
+  line-height: 1.4; /* Increase line height for better readability */
 }
 
 .order-item h3 {
-  font-size: 18px; /* Stel de grootte in voor eventuele subkoppen */
-  color: #333; /* Zorg ervoor dat de kleur consistent is */
+  font-size: 18px;
+  color: #333;
+  line-height: 1.4; /* Increase line height for better readability */
 }
-
 
 .product-images {
   margin-top: 10px;
@@ -29,27 +41,36 @@
 
 .product-images img {
   width: 100%;
-  max-width: 200px; /* Pas de breedte aan naar je voorkeur */
+  max-width: 180px; /* Slightly reduce max-width for better layout */
   height: auto;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 10px auto; /* Consistent margin for spacing */
   border-radius: 8px;
+  object-fit: cover; /* Ensure image is always fully displayed */
 }
 
 .user-photo {
-  width: 50px;
-  height: 50px;
+  width: 60px; /* Slightly larger for visibility */
+  height: 60px;
   border-radius: 50%;
-  border: 2px solid #ddd;
-  margin-top: 10px;
+  border: 2px solid #aaa; /* Darker border for better contrast */
+  margin: 15px auto; /* Centering the photo with more margin */
 }
 
 .order-list-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  padding-top: 0px; /* Ruimte bovenaan om overlap met navbar te voorkomen */
+  justify-content: space-evenly; /* Center items more effectively */
+  gap: 15px; /* Add gap for better spacing */
+  padding-top: 20px; /* Ensure enough space from the top */
 }
 
+@media (max-width: 600px) {
+  .order-item {
+    width: 100%; /* Full width for smaller screens */
+    margin: 10px 0;
+  }
 
+  .order-list-container {
+    padding: 10px; /* Reduce padding on smaller screens */
+  } 
+}

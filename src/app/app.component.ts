@@ -6,6 +6,7 @@ import { NavbarComponent } from './components/navbaar/navbaar.component';
 import { OrderListComponent } from "./components/order-list/order-list.component";
 
 
+
 @Component({
   selector: 'app-root',
   standalone: true,

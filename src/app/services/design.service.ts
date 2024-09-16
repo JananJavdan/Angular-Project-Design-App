@@ -1,66 +1,53 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { Design } from '../models/design.model';
-import { catchError } from 'rxjs/operators';
+
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DesignService {
-  private baseUrl = 'http://localhost:8080/designs';
+  private apiUrl = 'http://localhost:8080/designs';
+ 
+
+ 
+  constructor(private http: HttpClient, private authService: AuthService) { }
+
+
+  submitDesign(designData: any): Observable<Design> {
+    return this.http.post<Design>(`${this.apiUrl}/submit`, designData);
+  }
   
-  constructor(private http: HttpClient) { }
+  getCustomerDesigns(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/my-designs`);
+  }
+  
+  createDesign(formData: FormData) {
+    const headers = new HttpHeaders({
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    });
 
-  getUserDesigns(userId: number): Observable<Design[]> {
-    const url = `${this.baseUrl}/user/${userId}`;
-    return this.http.get<Design[]>(url).pipe(
-      catchError(this.handleError)
-    );
+    return this.http.post('http://localhost:8080/designs/create', formData, { headers });
   }
-  getDesigns(): Observable<Design[]> {
-    return this.http.get<Design[]>(this.baseUrl).pipe(
-      catchError(this.handleError)
-    );
-  }
-  getDesignById(id: number): Observable<Design> {
-    const url = `${this.baseUrl}/${id}`;
-    return this.http.get<Design>(url).pipe(
-      catchError(this.handleError)
-    );
-  }
+  
+  
+  getAllDesigns() {
+    const headers = new HttpHeaders({
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    });
 
-  createDesign(design: Design): Observable<Design> {
-    return this.http.post<Design>(this.baseUrl, design).pipe(
-      catchError(this.handleError)
-    );
+    return this.http.get<Design[]>('http://localhost:8080/designs', { headers });
   }
 
-  updateDesign(id: number, design: Design): Observable<Design> {
-    const url = `${this.baseUrl}/${id}`;
-    return this.http.put<Design>(url, design).pipe(
-      catchError(this.handleError)
-    );
+ 
+
+  
+  deleteDesign(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/${id}`);
   }
+  
+  
 
-
-  deleteDesign(id: number): Observable<void> {
-    const url = `${this.baseUrl}/${id}`;
-    return this.http.delete<void>(url).pipe(
-      catchError(this.handleError)
-    );
-  }
-
-  private handleError(error: HttpErrorResponse): Observable<never> {
-    let errorMessage = 'An unknown error occurred!';
-    if (error.error instanceof ErrorEvent) {
-      // Client-side error
-      errorMessage = `Error: ${error.error.message}`;
-    } else {
-      // Server-side error
-      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-    }
-    return throwError(() => errorMessage);
-  }
-}
-
+} 

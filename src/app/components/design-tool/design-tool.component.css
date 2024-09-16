@@ -13,6 +13,8 @@ body {
   background-color: #6a1b9a; /* Paars voor een stijlvolle look */
   color: white;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Schaduw voor diepte */
+  position: relative;  /* Make sure header is positioned correctly */
+  z-index: 10; 
 }
 
 .logo {
@@ -28,6 +30,8 @@ body {
   padding: 5px 10px;
   border-radius: 4px;
   transition: background-color 0.3s ease;
+  display: inline-block;  
+  cursor: pointer;
 }
 
 .nav a:hover {
